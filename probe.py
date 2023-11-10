@@ -11,6 +11,7 @@ while True:
     # Envoi des données à l'API du serveur Flask
     api_url = "http://192.168.56.1:8080/releves"
     data = {'temperature': temperature, 'humidity': humidity}
+    # Envoi de la requete HTTP et les donnees sont en json
     response = requests.post(api_url, json=data)
 
     print("Données envoyées à l'API Flask :", response.json())
