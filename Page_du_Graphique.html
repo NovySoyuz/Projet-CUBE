@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="Graphique.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Temperature Graph</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Graphique des Temperatures Enregister</h1>
+        </header>
+        <section id="temperature-chart"></section>
+    </div>
+    <canvas id="myChart" width="600" height="400"></canvas>
+
+    <script>
+        // Fonction pour récupérer les données depuis votre API
+        async function fetchData() {
+            try {
+                const response = await fetch('URL_DE_VOTRE_API');
+                const data = await response.json();
+                return data;
+            } catch (error) {
+                console.error('Erreur de récupération des données:', error);
+            }
+        }
+
+        // Fonction pour créer le graphique avec les données obtenues
+        async function createChart() {
+            const data = await fetchData();
+
+            var ctx = document.getElementById('myChart').getContext('2d');
+            var myChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: data.labels,
+                    datasets: [
+                        {
+                            label: 'Humidité',
+                            borderColor: 'blue',
+                            data: data.humidity,
+                        },
+                        {
+                            label: 'Température',
+                            borderColor: 'red',
+                            data: data.temperature,
+                        },
+                        {
+                            label: 'Ensoleillement',
+                            borderColor: 'yellow',
+                            data: data.sunlight,
+                        }
+                    ]
+                }
+            });
+        }
+
+        // Appel de la fonction pour créer le graphique
+        createChart();
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,91 @@
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to right, #4a90e2, #55efc4);
+  color: #2d3436;
+}
+
+.container {
+  max-width: 600px;
+  margin: 100px auto;
+  padding: 20px;
+  background-color: rgba(253, 241, 184, 0.9);
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+h1 {
+  color: #2d3436;
+}
+
+.weather-info {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 15px;
+  border-radius: 5px;
+}
+
+.location {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+h2 {
+  color: #2d3436;
+}
+
+.temperature,
+.description {
+  text-align: center;
+}
+
+p {
+  color: #2d3436;
+}
+
+.affichage-grapique {
+  display: block;
+  margin: -75px auto;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.affichage-grapique:hover {
+  background-color: #2980b9;
+}
+
+.containerrer {
+  position: absolute;
+  top: 20px; /* Ajustez cette valeur selon votre préférence */
+  left: 20px; /* Ajustez cette valeur selon votre préférence */
+}
+
+.soleil-button {
+  font-size: 50px;
+  background-color: #f39c12;
+  color: #fff;
+  border: none;
+  border-radius: 70%;
+  padding: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease-out;
+}
+
+.soleil-button:hover {
+  background-color: #e67e22;
+}
+
+.soleil-button:active {
+  transform: scale(0.95);
+}
+
