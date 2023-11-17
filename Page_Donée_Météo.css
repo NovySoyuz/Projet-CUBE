@@ -1,91 +1,110 @@
+/* Réinitialisation des styles de base pour le corps de la page */
 body {
-  font-family: 'Arial', sans-serif;
-  margin: 0;
-  padding: 0;
-  background: linear-gradient(to right, #4a90e2, #55efc4);
-  color: #2d3436;
+  font-family: 'Arial', sans-serif; /* Utilisation de la police Arial ou une police sans-serif par défaut */
+  margin: 0; /* Suppression de la marge par défaut du corps */
+  padding: 0; /* Suppression du remplissage par défaut du corps */
+  background: linear-gradient(to right, #4a90e2, #55efc4); /* Arrière-plan avec un dégradé linéaire de bleu à vert */
+  color: #2d3436; /* Couleur du texte principale */
 }
 
+/* Style du conteneur principal de la page */
 .container {
-  max-width: 600px;
-  margin: 100px auto;
-  padding: 20px;
-  background-color: rgba(253, 241, 184, 0.9);
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-width: 600px; /* Largeur maximale du conteneur */
+  margin: 100px auto; /* Marge extérieure en haut et en bas, centrée horizontalement */
+  padding: 20px; /* Remplissage interne du conteneur */
+  background-color: rgba(253, 241, 184, 0.9); /* Couleur de fond avec une opacité */
+  border-radius: 5px; /* Coins arrondis */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Ombre légère */
 }
 
+/* Style de l'en-tête */
 .header {
-  text-align: center;
-  margin-bottom: 20px;
+  text-align: center; /* Centrage du texte */
+  margin-bottom: 20px; /* Marge en bas de l'en-tête */
 }
 
+/* Style du titre principal */
 h1 {
-  color: #2d3436;
+  color: #2d3436; /* Couleur du texte du titre principal */
 }
 
+/* Style de la section d'informations météorologiques */
 .weather-info {
-  background-color: rgba(255, 255, 255, 0.8);
-  padding: 15px;
-  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.8); /* Couleur de fond avec une opacité */
+  padding: 15px; /* Remplissage interne de la section */
+  border-radius: 5px; /* Coins arrondis */
 }
 
+/* Style de la section de localisation */
 .location {
-  text-align: center;
-  margin-bottom: 10px;
+  text-align: center; /* Centrage du texte */
+  margin-bottom: 10px; /* Marge en bas de la section de localisation */
 }
 
+/* Style du titre de la localisation */
 h2 {
-  color: #2d3436;
+  color: #2d3436; /* Couleur du texte du titre de la localisation */
 }
 
+/* Style des sections de température et de description */
 .temperature,
 .description {
-  text-align: center;
+  text-align: center; /* Centrage du texte */
 }
 
+/* Style du paragraphe */
 p {
-  color: #2d3436;
+  color: #2d3436; /* Couleur du texte des paragraphes */
 }
 
+/* Style du bouton d'affichage du graphique */
 .affichage-grapique {
-  display: block;
-  margin: -75px auto;
-  padding: 10px 20px;
-  font-size: 16px;
-  background-color: #3498db;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+  display: block; /* Affichage en tant que bloc */
+  margin: -75px auto; /* Marge extérieure en haut et en bas, centrée horizontalement */
+  padding: 10px 20px; /* Remplissage interne du bouton */
+  font-size: 16px; /* Taille de la police */
+  background-color: #3498db; /* Couleur de fond du bouton */
+  color: #fff; /* Couleur du texte du bouton */
+  border: none; /* Suppression de la bordure */
+  border-radius: 5px; /* Coins arrondis */
+  cursor: pointer; /* Curseur de type pointeur au survol */
+  transition: background-color 0.3s ease, transform 0.2s ease-out; /* Transition fluide pour la couleur de fond et l'effet de transformation */
 }
 
+/* Style du bouton d'affichage du graphique au survol */
 .affichage-grapique:hover {
-  background-color: #2980b9;
+  background-color: #2980b9; /* Changement de couleur de fond au survol */
 }
 
+.affichage-grapique:active {
+  transform: scale(0.95); /* Réduction de la taille au clic */
+}
+
+/* Style du conteneur supplémentaire */
 .containerrer {
-  position: absolute;
-  top: 20px; /* Ajustez cette valeur selon votre préférence */
-  left: 20px; /* Ajustez cette valeur selon votre préférence */
+  position: absolute; /* Positionnement absolu par rapport à l'élément parent le plus proche */
+  top: 20px; /* Distance du haut par rapport au bord supérieur de la page */
+  left: 20px; /* Distance de la gauche par rapport au bord gauche de la page */
 }
 
+/* Style du bouton "soleil" */
 .soleil-button {
-  font-size: 50px;
-  background-color: #f39c12;
-  color: #fff;
-  border: none;
-  border-radius: 70%;
-  padding: 15px;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease-out;
+  font-size: 50px; /* Taille de la police du bouton "soleil" */
+  background-color: #f39c12; /* Couleur de fond du bouton "soleil" */
+  color: #fff; /* Couleur du texte du bouton "soleil" */
+  border: none; /* Suppression de la bordure */
+  border-radius: 70%; /* Coins arrondis */
+  padding: 15px; /* Remplissage interne du bouton "soleil" */
+  cursor: pointer; /* Curseur de type pointeur au survol */
+  transition: background-color 0.3s ease, transform 0.2s ease-out; /* Transition fluide pour la couleur de fond et l'effet de transformation */
 }
 
+/* Style du bouton "soleil" au survol */
 .soleil-button:hover {
-  background-color: #e67e22;
+  background-color: #e67e22; /* Changement de couleur de fond au survol */
 }
 
+/* Style du bouton "soleil" au clic */
 .soleil-button:active {
-  transform: scale(0.95);
+  transform: scale(0.95); /* Réduction de la taille au clic */
 }
-

@@ -1,33 +1,44 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="Untitled-1.css">
+    <!-- Liaison vers une feuille de style externe nommée "Page_Donée_Météo.css" -->
+    <link rel="stylesheet" href="Page_Donée_Météo.css">
 </head>
-</html>
-
 <body>
+    <!-- Conteneur principal de la page web -->
     <div class="container">
+        <!-- Section d'en-tête avec le titre "Station Météo" -->
         <div class="header">
-            <h1>Station Météooooooooooo</h1>
+            <h1>Station Météo</h1>
         </div>
+        <!-- Section d'informations météorologiques -->
         <div class="weather-info">
+            <!-- Informations sur la localisation -->
             <div class="location">
                 <h2>Aix en Provence, France</h2>
             </div>
+            <!-- Informations sur la température -->
             <div class="temperature">
-                <p>Temperature: 25°C</p>
+                <p>Température : 25°C</p>
             </div>
+            <!-- Informations sur l'humidité -->
             <div class="description">
-                <p>Peu Couvert</p>
+                <p>Humidité : 51%</p>
             </div>
         </div>
     </div>
+    
+    <!-- Conteneur supplémentaire avec un formulaire et un bouton à des fins indéterminées -->
     <div class="containerrer">
         <form>
+            <!-- Placeholder pour l'action du formulaire (actuellement vide) et la méthode définie sur "get" -->
             <action="" method="get">
         </form>
+        <!-- Bouton avec un emoji de soleil et une fonction JavaScript associée "cliqueSoleil()" -->
         <button class="soleil-button" onclick="cliqueSoleil()">☀</button>
     </div>
-    <button class="affichage-grapique" onclick="window.location.href = 'Page_du_Graphique.html';" >Afficher le Graphique</button>
+    
+    <!-- Bouton pour naviguer vers une autre page nommée "Page_du_Graphique.html" -->
+    <button class="affichage-grapique" onclick="window.location.href = 'Page_du_Graphique.html';">Afficher le Graphique</button>
 </body>
 </html>
