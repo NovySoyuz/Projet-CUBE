@@ -1,4 +1,5 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 # Bibliotheque python pour se connecter a la BDD
 import mysql.connector
 import json                      
@@ -8,6 +9,7 @@ from dotenv import load_dotenv
 # Chargement des variables dans le .env
 load_dotenv()
 app = Flask(__name__)
+CORS(app)
 
 # Configuration de MySQL
 # Connexion à la BDD
