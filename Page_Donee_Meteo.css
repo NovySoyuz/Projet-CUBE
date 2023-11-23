@@ -3,7 +3,7 @@ body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background: linear-gradient(to right, #3498db, #2ecc71);
+    background: linear-gradient(to right, #3498db, #2e60cc);
     color: #2d3436;
 }
 
@@ -63,7 +63,7 @@ p {
     margin: 20px auto;
     padding: 10px 20px;
     font-size: 16px;
-    background-color: #3498db;
+    background-color: #34a1db;
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -110,4 +110,11 @@ p {
 /* Style du bouton "soleil" au clic */
 .soleil-button:active {
     transform: scale(0.95);
+}
+
+img {
+    width: 702px;
+    height: 373px;
+    margin-top: -300px;
+    position: relative;
 }

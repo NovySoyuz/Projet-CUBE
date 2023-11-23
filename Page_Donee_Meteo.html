@@ -3,10 +3,14 @@
 
 <head>
     <!-- Liaison vers une feuille de style externe nommée "Page_Donée_Météo.css" -->
-    <link rel="stylesheet" href="Page_Donee_Meteo.css">
+    <link rel="stylesheet" href="Page_Donnee_Meteo.css">
 </head>
 
 <body>
+    <div class="background">
+        <img src="244-2446451_white-clouds-vector-png.png" />
+        <img src="244-2446451_white-clouds-vector-png.png" />
+    </div>
     <script>
         const xhr = new XMLHttpRequest();
         xhr.open("GET", "http://127.0.0.1:5000/releves");
@@ -16,11 +20,11 @@
             if (xhr.readyState == 4 && xhr.status == 200) {
                 const data = xhr.response;
                 console.log(data); // Vérifiez la structure des données dans la console
-        
+
                 // Manipulation du DOM pour afficher les données
                 const temperatureInfo = document.getElementById("temperature-info");
                 const humidityInfo = document.getElementById("humidity-info");
-        
+
                 if (data.length > 0) {
                     const lastData = data[data.length - 1];
                     const temperature = lastData[1];  // Index 0 pour la température
@@ -50,7 +54,7 @@
             </div>
             <!-- Informations sur la température -->
             <!-- Informations sur la température -->
-            
+
             <div class="temperature" id="temperature-info">
                 <p>Temperature : </p>
             </div>
@@ -61,6 +65,14 @@
 
         </div>
     </div>
+
+    <!-- fonction permetant de recharger une page web -->
+    <script>
+        function cliqueSoleil() {
+            // Recharge la page actuelle
+            location.reload();
+        }
+    </script>
 
     <!-- Conteneur supplémentaire avec un formulaire et un bouton à des fins indéterminées -->
     <div class="containerrer">
@@ -76,6 +88,10 @@
     <!-- Bouton pour naviguer vers une autre page nommée "Page_du_Graphique.html" -->
     <button class="affichage-grapique" onclick="window.location.href = 'Page_du_Graphique.html';">Afficher le
         Graphique</button>
+    <div class="background">
+       
+    </div>
+
 </body>
 
 </html>
