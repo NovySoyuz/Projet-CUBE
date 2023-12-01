@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Liaison vers une feuille de style externe nommée "Page_Donée_Météo.css" -->
+    <link rel="stylesheet" href="../static/Page_Donee_Meteo.css">
+</head>
+
+<body>
+    <script>
+        // Creation d'un objet qui permet d'envoyer des requetes http asynchrone (envoi la demande et continue son execution, traite la réponse quand elle arrive)
+        const xhr = new XMLHttpRequest();
+        // Configuration de la requete http en GET
+        xhr.open("GET", "http://127.0.0.1:5000/releves");
+        // Envoi de la requete GET
+        xhr.send();
+        // Conversion de la reponse en json
+        xhr.responseType = "json";
+        // Definition d'une fonction quand la requete http à terminé de load
+        xhr.onload = () => {
+            // Verification que la requete est complete (==4) et que http est 200 (ok)
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                // Récupere données de la réponse json et stock dans la variable data
+                const data = xhr.response;
+                // Affiche les données dans le navigateur pour verifier la structure
+                console.log(data);
+        
+                // Manipulation du DOM (document object model) pour afficher les données
+                // Selectionne l'element temperature-info et humidity-info présent plus bas dans le html 
+                const temperatureInfo = document.getElementById("temperature-info");
+                const humidityInfo = document.getElementById("humidity-info");
+                // Verifie si les données sont recuperées
+                if (data.length > 0) {
+                    // Récupere les données dans un tableau
+                    const lastData = data[data.length - 1];
+                    // temperature = derniere entrée du tableau
+                    const temperature = lastData[0];
+                    // Idem
+                    const humidity = lastData[1];
+                    // Mettre à jours le contenu du DOM
+                    temperatureInfo.innerHTML = `<p>Température : ${temperature} °C</p>`;
+                    humidityInfo.innerHTML = `<p>Humidité : ${humidity} %</p>`;
+                } else {
+                    // Si pas de données mettre N/A
+                    temperatureInfo.innerHTML = "<p>Température : N/A</p>";
+                    humidityInfo.innerHTML = "<p>Humidité : N/A</p>";
+                }
+                // Si la requete echoue mettre le status de la requete
+            } else {
+                console.log(`Error: ${xhr.status}`);
+            }
+        };
+    </script>
+    <!-- Conteneur principal de la page web -->
+    <div class="container">
+        <!-- Section d'en-tête avec le titre "Station Météo" -->
+        <div class="header">
+            <h1>Station Météo</h1>
+        </div>
+        <!-- Section d'informations météorologiques -->
+        <div class="weather-info">
+            <!-- Informations sur la localisation -->
+            <div class="location">
+                <h2>Aix en Provence, France</h2>
+            </div>
+            <!-- Informations sur la température -->
+            <!-- Informations sur la température -->
+            
+            <div class="temperature" id="temperature-info">
+                <p>Temperature : </p>
+            </div>
+            <!-- Informations sur l'humidité -->
+            <div class="description" id="humidity-info">
+                <p>Humidité : </p>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Conteneur supplémentaire avec un formulaire et un bouton à des fins indéterminées -->
+    <div class="containerrer">
+        <form>
+            <!-- Placeholder pour l'action du formulaire (actuellement vide) et la méthode définie sur "get" -->
+            <action="" method="get">
+        </form>
+        <!-- Bouton avec un emoji de soleil et une fonction JavaScript associée "cliqueSoleil()" 
+        !!!!!!La fonction n'est pas appelée attention-->
+        <button class="soleil-button" onclick="cliqueSoleil()">☀</button>
+    </div>
+
+    <!-- Bouton pour naviguer vers une autre page nommée "Page_du_Graphique.html" -->
+    <button class="affichage-grapique" onclick="window.location.href = 'Page_du_Graphique.html';">Afficher le
+        Graphique</button>
+</body>
+
+</html>

@@ -1,0 +1,113 @@
+/* Réinitialisation des styles de base pour le corps de la page */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to right, #3498db, #2ecc71);
+    color: #2d3436;
+}
+
+/* Style du conteneur principal de la page */
+.container {
+    max-width: 600px;
+    margin: 100px auto;
+    padding: 20px;
+    background-color: rgba(253, 241, 184, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Style de l'en-tête */
+.header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Style du titre principal */
+h1 {
+    color: #2d3436;
+}
+
+/* Style de la section d'informations météorologiques */
+.weather-info {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 15px;
+    border-radius: 10px;
+}
+
+/* Style de la section de localisation */
+.location {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+/* Style du titre de la localisation */
+h2 {
+    color: #2d3436;
+}
+
+/* Style des sections de température et de description */
+.temperature,
+.description {
+    text-align: center;
+}
+
+/* Style du paragraphe */
+p {
+    color: #2d3436;
+}
+
+/* Style du bouton d'affichage du graphique */
+.affichage-grapique {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease-out;
+}
+
+/* Style du bouton d'affichage du graphique au survol */
+.affichage-grapique:hover {
+    background-color: #2980b9;
+}
+
+.affichage-grapique:active {
+    transform: scale(0.95);
+}
+
+/* Style du conteneur supplémentaire */
+.containerrer {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+/* Style du bouton "soleil" */
+.soleil-button {
+    width: 60px;
+    height: 60px;
+    font-size: 30px;
+    line-height: 60px;
+    background-color: #f39c12;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease-out;
+}
+
+/* Style du bouton "soleil" au survol */
+.soleil-button:hover {
+    background-color: #e67e22;
+}
+
+/* Style du bouton "soleil" au clic */
+.soleil-button:active {
+    transform: scale(0.95);
+}
