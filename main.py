@@ -1,45 +1,44 @@
-from flask import Flask, request, jsonify
+# Import du framework Flask 
+# Bibliotheque request = envoyer des requetes http
+# Bibliotheque jsonify = convertir les données en json
+# Bibliotheque render_template = permet de récuprer des fichiers dans le dossier templates
+from flask import Flask, request, jsonify, blueprints
+# Bibliotheque flask_cors = permet, à travers des en-têtes HTTP, d'autoriser un utilisateur l'accès à des resources situées sur une autre origine que le site courant
 from flask_cors import CORS
-# Bibliotheque python pour se connecter a la BDD
-import mysql.connector
-import json                      
-import os
+# Bibliotheque mysql.connector = connexion à une bdd
+from database import db, cursor, create_database
+# On importe data du fichier auth pour pouvoir aller sur la route 
+from auth import data
+# dotenv permet d'utiliser et de charger le contenu d'un fichier .env
 from dotenv import load_dotenv
-
 # Chargement des variables dans le .env
+create_database()
 load_dotenv()
+# Lancement d'un script python
 app = Flask(__name__)
+# Initialise la route /data depuis data dans auth.py
+app.register_blueprint(data, url_prefix='/data')
+# Lancement de CORS
 CORS(app)
-
-# Configuration de MySQL
-# Connexion à la BDD
-db = mysql.connector.connect(               
-    host=os.getenv("DB_HOST"),
-    user=os.getenv("DB_USER"),
-    password=os.getenv("DB_PASSWORD"),
-    database=os.getenv("DB_DATABASE"),
-    port=os.getenv("DB_PORT")
-)
-# Creation d'un objet curseur permettant d'executer des requetes SQL
-cursor = db.cursor()
-
 # Route pour recevoir et stocker les données de la sonde
 # Creation de la route /releves accessible via POST
+# Argument methods (on aurait pu remplacer par endpoint ou autre) pour pouvoir utiliser la route
 @app.route('/releves', methods=['GET','POST','PUT','DELETE'])
 # definition d'une fonction recuperant des donnees reçu par la sonde
+
 def receive_data():
     if request.method == 'POST':
-    # Si la méthode est POST, récupérez les données de la requête JSON
+    # Si la méthode est POST, récupérez les données de la requête en JSON
         data = request.json
         temperature = data.get('temperature')
         humidity = data.get('humidity')
-        
         # Stockage des données dans la base de données
         # execution de la requete sql pour inserer les temperatures
         # %s = sécurisation des requetes sql
-        cursor.execute("INSERT INTO table_des_releves (temperature, humidity) VALUES (%s, %s)", (temperature, humidity))
+        cursor.execute("INSERT INTO table_des_releves (temperature, humidity, date) VALUES (%s, %s, NOW())", (temperature, humidity))
         # Validation et sauvagarde des modifications de la BDD
         db.commit()
+        
         #reponse JSON de la bonne execution
         return jsonify({'message': 'Données reçues et stockées'})
     
