@@ -23,7 +23,7 @@ docker les services requis)
 Serveur 
 ● Il héberge le serveur web 
 ● Il héberge le SGBDR correctement configuré 
-● Il sera administrable via SSH 
+● Il sera administrable via SSH
 ● Il héberge l’API 
 ● La base de données ne sera accessible qu’à travers l’API 
 ● Il disposera d’un écran afin d’afficher : son adresse IP, la date et heure, et fera défiler 
