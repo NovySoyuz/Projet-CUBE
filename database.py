@@ -1,6 +1,6 @@
 # Bibliotheque mysql.connector = connexion à une bdd
 import mysql.connector
-# Module os = Permet d'operet avec le systempe d'exploitation permet  
+# Module os = Permet d'opere avec le systempe d'exploitation  
 import os
 # dotenv permet d'utiliser et de charger le contenu d'un fichier .env
 from dotenv import load_dotenv
