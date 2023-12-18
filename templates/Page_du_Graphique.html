@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="../static/Graphique.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Temperature Graph</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Graphique des Temperatures Enregistées</h1>
+        </header>
+        <section id="temperature-chart">
+            <canvas id="temperatureChart" width="800" height="400"></canvas>
+        </section>
+        <header>
+            <h1>Graphique des Humiditées Enregistées</h1>
+        </header>
+        <section id="humidity-chart">
+            <canvas id="humidityChart" width="800" height="400"></canvas>
+        </section>
+    </div>
+
+    <script>
+        // Fonction pour récupérer les données depuis votre API idem que celle dans page_donee_meteo
+async function fetchData() {
+    return new Promise((resolve, reject) => {
+        const xhr = new XMLHttpRequest();
+        xhr.open("GET", "http://127.0.0.1:5000/data/donnees_graphiques");
+        xhr.send();
+        xhr.responseType = "json";
+        xhr.onload = () => {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                const data = xhr.response;
+                resolve(data);
+            } else {
+                reject(xhr.statusText);
+            }
+        };
+    });
+}
+
+// Fonction pour créer le graphique avec les données obtenues
+async function createTemperatureChart() {
+    const data = await fetchData();
+    var ctx = document.getElementById('temperatureChart').getContext('2d');
+    var temperatureChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: data.labels,
+            datasets: [
+                {
+                    label: 'Température',
+                    borderColor: 'red',
+                    data: data.temperature,
+                }
+            ]
+        }
+    });
+}
+
+// Fonction pour créer le graphique d'humidité avec les données obtenues
+async function createHumidityChart() {
+    const data = await fetchData();
+    var ctx = document.getElementById('humidityChart').getContext('2d');
+    var humidityChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: data.labels,
+            datasets: [
+                {
+                    label: 'Humidité',
+                    borderColor: 'blue',
+                    data: data.humidity,
+                }
+            ]
+        }
+    });
+}
+
+// Appel des fonctions pour créer les graphiques
+createTemperatureChart();
+createHumidityChart();
+    </script>
+</body>
+
+</html>
