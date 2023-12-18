@@ -3,8 +3,8 @@ from database import cursor
 from dotenv import load_dotenv
 load_dotenv()
 data = Blueprint('data',__name__)
-# Permet de rentrer les routes pour afficher le site web
-# render_template permet de venir récuperer Page_Donee_Meteo.html dans le dossier templates
+# Route vers le site web
+# Recuperation des donner 
 # Les route permettent de venir récup les données via le navigateur 
 @data.route('/site')
 def site_dashboard():
