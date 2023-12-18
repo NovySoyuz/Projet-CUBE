@@ -8,7 +8,7 @@
 // Connection à l'API
 const char *ssid = "Mathias";
 const char *password = "Mathiasn";
-const char *apiEndpoint = "http://192.168.228.5:5000/releves"; // Mettez l'adresse complète de l'API, y compris le protocole (http://)
+const char *apiEndpoint = "http://192.168.22.5:5000/releves"; // Mettez l'adresse complète de l'API, y compris le protocole (http://)
 
 Adafruit_BME280 bme;
 LiquidCrystal_I2C lcd(0x27, 16, 2);  // Adresse I2C, nombre de colonnes, nombre de lignes
