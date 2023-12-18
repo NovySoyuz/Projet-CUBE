@@ -1,8 +1,9 @@
 body {
+    display: flex;
     font-family: 'Arial', sans-serif;
-    margin: 0;
+    margin: auto;
     padding: 0;
-    background: linear-gradient(to right, #4a90e2, #55efc4);
+    background: linear-gradient(to right, #4a90e2, #5590ef);
     color: #2d3436;
 }
 
@@ -24,7 +25,7 @@ h1 {
     color: #2d3436;
 }
 
-#temperature-chart, #humidity-chart {
+#temperature-chart {
     height: 400px;
     background-color: #fff;
     border-radius: 8px;
@@ -32,3 +33,10 @@ h1 {
 }
 
 /* Ajoutez des styles supplémentaires pour le graphique si nécessaire */
+
+img {
+    width: 702px;
+    height: 373px;
+    margin-top: -300px;
+    position: relative;
+}
