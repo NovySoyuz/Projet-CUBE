@@ -1,3 +1,4 @@
+/* Mise en forme generale de la page*/
 body {
     display: flex;
     font-family: 'Arial', sans-serif;
@@ -15,7 +16,7 @@ body {
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
-
+/* Mise en forme de l'entête*/
 header {
     text-align: center;
     margin-bottom: 20px;
