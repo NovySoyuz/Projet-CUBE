@@ -6,11 +6,13 @@ from database import db, cursor, create_database
 # Importation des fichiers
 from auth import data
 from dotenv import load_dotenv
+from flasgger import Swagger
 # Variables dans le .env
 create_database()
 load_dotenv()
 # Lancement d'un script python
 app = Flask(__name__)
+swagger = Swagger(app)
 # Initialise la route /data depuis data dans auth.py
 app.register_blueprint(data, url_prefix='/data')
 # Lancement de CORS
@@ -21,6 +23,24 @@ CORS(app)
 
 # Donner recupéré par la sonde methode post
 def receive_data():
+    """
+    Endpoint to receive and store sensor data.
+    ---
+    parameters:
+      - name: temperature
+        in: formData
+        type: number
+        required: true
+        description: The temperature value.
+      - name: humidity
+        in: formData
+        type: number
+        required: true
+        description: The humidity value.
+    responses:
+      200:
+        description: Data received and stored successfully.
+    """
     if request.method == 'POST':
         data = request.json
         temperature = data.get('temperature')
